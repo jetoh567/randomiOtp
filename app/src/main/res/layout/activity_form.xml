@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FormActivity"
+        android:orientation="vertical"
+        android:layout_weight="10">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dangdang"
+            android:text="권한위임 폼"
+            android:gravity="center"
+            android:textSize="50dp"
+            android:textColor="#000000"
+            android:layout_marginBottom="15dp">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="15dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/txtHostEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.45"
+                        android:ems="10"
+                        android:fontFamily="@font/dangdang"
+                        android:hint="Host의 이메일"
+                        android:inputType="textEmailAddress" />
+
+                    <EditText
+                        android:id="@+id/txtHostPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.45"
+                        android:fontFamily="@font/dangdang"
+                        android:hint="Host의 전화번호"
+                        android:ems="10"
+                        android:inputType="phone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/txtGuestEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/dangdang"
+                            android:hint="본인의 이메일"
+                            android:layout_weight="0.45"
+                            android:ems="10"
+                            android:inputType="textEmailAddress" />
+
+                        <EditText
+                            android:id="@+id/txtGuestPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/dangdang"
+                            android:hint="본인의 전화번호"
+                            android:ems="10"
+                            android:layout_weight="0.45"
+                            android:inputType="phone" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/txtPlaceAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dangdang"
+                android:hint="사용하고 싶은 장소의 주소를 입력하세요"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/txtPeopleNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dangdang"
+                android:hint="Otp 비밀번호를 공유하고자 하는 인원수를 적으세요"
+                android:ems="10"
+                android:inputType="textPersonName"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.5">
+                <!-- 사용기간 입력 -->
+                <Button
+                    android:id="@+id/btnStartDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="OnClickHandler1"
+                    android:fontFamily="@font/dangdang"
+                    android:text="사용시작 날짜 선택" />
+
+                <TextView
+                    android:id="@+id/textView_startdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/dangdang"
+                    android:text="날짜 정보" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.5">
+                <!-- 사용 시간 입력 -->
+                <Button
+                    android:id="@+id/btnStartTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="OnClickHandler2"
+                    android:fontFamily="@font/dangdang"
+                    android:text="사용시작 시간 선택" />
+
+                <TextView
+                    android:id="@+id/textView_starttime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/dangdang"
+                    android:text="날짜 정보" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.5">
+                <Button
+                    android:id="@+id/btnEndDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="OnClickHandler3"
+                    android:fontFamily="@font/dangdang"
+                    android:text="사용종료 날짜 선택" />
+
+                <TextView
+                    android:id="@+id/textView_enddate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/dangdang"
+                    android:text="날짜 정보" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.5">
+                <!-- 사용 시간 입력 -->
+                <Button
+                    android:id="@+id/btnEndTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="OnClickHandler4"
+                    android:fontFamily="@font/dangdang"
+                    android:text="사용종료 시간 선택" />
+
+                <TextView
+                    android:id="@+id/textView_endtime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/dangdang"
+                    android:text="날짜 정보" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="2">
+            <!-- 본인인증파일첨부 -->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="#2558B1"
+                tools:srcCompat="@tools:sample/avatars"
+                android:layout_margin="20dp"/>
+            <Button
+                android:id="@+id/btnPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/dangdang"
+                android:text="사진찍기"
+                android:layout_marginBottom="10dp">
+            </Button>
+            <!-- 요청사항입력 -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dangdang"
+                android:text="폼 전송">
+
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

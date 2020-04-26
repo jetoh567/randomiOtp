@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">randomiOtp</string>
+    <string name="title">OTP발급권한요청</string>
+</resources>
