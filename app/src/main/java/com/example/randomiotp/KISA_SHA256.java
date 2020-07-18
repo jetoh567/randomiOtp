@@ -95,6 +95,8 @@ public class KISA_SHA256 extends AppCompatActivity {
     private TextView txtDateNow; //현재 시간을 나타내는 텍스트뷰
     private TextView txtOtpNum; // 생성시간을 보여주는 텍스트뷰
     private Button btnCreateOTP;
+    private TextView otpDate1;
+    private TextView pastOtp1;
 
 
     private String strNow_minus; //현재시간-1 int형 string으로 저장
@@ -117,18 +119,35 @@ public class KISA_SHA256 extends AppCompatActivity {
         txtDateNow = findViewById(R.id.txtOtpTime); // otp 생성시간
         btnCreateOTP = findViewById(R.id.btnCreateOTP); //otp 생성버튼
 
+        otpDate1 = findViewById(R.id.otpDate1); // 지난 otp를 보여주는 첫번째 칸
+        pastOtp1 = findViewById(R.id.pastOtp1);
+
         btnCreateOTP.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                int otpcreate_count = 0;
+                String temp_date;
+                String temp_otp;
                 /*************************************************kisa OTP 생성**************************************************/
                 initialSetting();
                 createSeed();
                 createTime();
                 createHashOTP();
+                otpcreate_count++;
                 //randomOTP();
                 txtDateNow.setText(formateDate);
                 Toast.makeText(getApplicationContext(), "OTP를 생성했습니다.", Toast.LENGTH_LONG).show();
                 txtOtpNum.setText(sel);
+
+                temp_otp = sel;
+                temp_date = formateDate;
+
+                if (otpcreate_count > 1) {
+                    pastOtp1.setText(temp_otp);
+                    otpDate1.setText(temp_date);
+                }
+
+
                 /***************************************************************************************************************/
 
                 /*************************************************속성암호코드***************************************************/
