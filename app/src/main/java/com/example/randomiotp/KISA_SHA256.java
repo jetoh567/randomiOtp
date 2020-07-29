@@ -97,7 +97,11 @@ public class KISA_SHA256 extends AppCompatActivity {
     private Button btnCreateOTP;
     private TextView otpDate1;
     private TextView pastOtp1;
-
+    private TextView otpDate2;
+    private TextView pastOtp2;
+    private TextView otpDate3;
+    private TextView pastOtp3;
+    private int otp_count = 0;
 
     private String strNow_minus; //현재시간-1 int형 string으로 저장
     private String strNow;
@@ -121,20 +125,26 @@ public class KISA_SHA256 extends AppCompatActivity {
 
         otpDate1 = findViewById(R.id.otpDate1); // 지난 otp를 보여주는 첫번째 칸
         pastOtp1 = findViewById(R.id.pastOtp1);
+        otpDate2 = findViewById(R.id.otpDate2);
+        pastOtp2 = findViewById(R.id.pastOtp2);
+        otpDate3 = findViewById(R.id.otpDate3);
+        pastOtp3 = findViewById(R.id.pastOtp3);
 
         btnCreateOTP.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                int otpcreate_count = 0;
-                String temp_date;
-                String temp_otp;
+                otp_count++;
+                String temp_date = "";
+                String temp_otp = "";
                 /*************************************************kisa OTP 생성**************************************************/
                 initialSetting();
                 createSeed();
                 createTime();
                 createHashOTP();
-                otpcreate_count++;
                 //randomOTP();
+
+
+
                 txtDateNow.setText(formateDate);
                 Toast.makeText(getApplicationContext(), "OTP를 생성했습니다.", Toast.LENGTH_LONG).show();
                 txtOtpNum.setText(sel);
@@ -142,11 +152,18 @@ public class KISA_SHA256 extends AppCompatActivity {
                 temp_otp = sel;
                 temp_date = formateDate;
 
-                if (otpcreate_count > 1) {
-                    pastOtp1.setText(temp_otp);
-                    otpDate1.setText(temp_date);
+                while(otp_count != 1) {
+                    if (otp_count % 3 == 2) {
+                        pastOtp1.setText(temp_otp);
+                        otpDate1.setText(temp_date);
+                    } else if (otp_count % 3 == 0) {
+                        pastOtp2.setText(temp_otp);
+                        otpDate2.setText(temp_date);
+                    } else if (otp_count % 3 == 1) {
+                        pastOtp3.setText(temp_otp);
+                        otpDate3.setText(temp_date);
+                    }
                 }
-
 
                 /***************************************************************************************************************/
 
